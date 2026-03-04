@@ -1,0 +1,236 @@
+/* Base */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #0f0f0f;
+  --color-surface: #1a1a1a;
+  --color-text: #f0f0f0;
+  --color-text-muted: #a0a0a0;
+  --color-accent: #e63946;
+  --color-border: #2a2a2a;
+  --font-sans: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --max-width: 1200px;
+  --radius: 8px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* Header */
+.site-header {
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-title {
+  margin: 0;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  margin: var(--space-xs) 0 0;
+  color: var(--color-text-muted);
+  font-size: 1rem;
+}
+
+/* Sections */
+.section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-md);
+}
+
+.section-title {
+  margin: 0 0 var(--space-lg);
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+/* About + Connect row */
+.about-connect-row {
+  display: grid;
+  gap: var(--space-xl);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .about-connect-row {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+  }
+}
+
+/* Bio */
+.bio-section .bio-text {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--color-text-muted);
+}
+
+/* Connect – icon-only socials */
+.connect-section {
+  text-align: left;
+}
+
+@media (min-width: 640px) {
+  .connect-section {
+    text-align: right;
+    padding-top: 0;
+  }
+}
+
+.social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .social-icons {
+    justify-content: flex-end;
+  }
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: var(--space-xs);
+  border-radius: var(--radius);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.social-icon:hover {
+  color: var(--color-accent);
+  transform: scale(1.1);
+}
+
+.social-icon svg {
+  flex-shrink: 0;
+}
+
+/* Video grid */
+.video-grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.youtube-grid {
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .youtube-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Responsive 16:9 YouTube wrapper */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.video-caption {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+/* Instagram Reels grid */
+.reels-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-md);
+}
+
+.reel-wrapper {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--color-surface);
+}
+
+@media (min-width: 500px) {
+  .reel-wrapper {
+    flex: 0 0 calc((100% - var(--space-md)) / 2);
+    max-width: calc((100% - var(--space-md)) / 2);
+  }
+}
+
+@media (min-width: 900px) {
+  .reel-wrapper {
+    flex: 0 0 calc((100% - var(--space-md) * 2) / 3);
+    max-width: calc((100% - var(--space-md) * 2) / 3);
+  }
+}
+
+.reel-wrapper iframe {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+
+/* Footer */
+.site-footer {
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
