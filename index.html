@@ -7,17 +7,22 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Zioveus Portfolio</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
   <header class="site-header">
-    <h1 class="site-title">Eva Ziova</h1>
-    <p class="tagline">Capturing moments that matter</p>
+    <div class="header-glass glass-panel">
+      <h1 class="site-title">Eva Ziova</h1>
+      <p class="tagline">Event &amp; exhibition videography</p>
+    </div>
   </header>
 
   <main>
-    <div class="about-connect-row section">
+    <div class="about-connect-row section glass-panel">
       <section id="bio" class="bio-section">
         <h2 class="section-title">About</h2>
         <p class="bio-text">
@@ -52,7 +57,7 @@
       </section>
     </div>
 
-    <section id="youtube" class="section youtube-section">
+    <section id="youtube" class="section youtube-section glass-panel">
       <h2 class="section-title">YouTube</h2>
       <div class="video-grid youtube-grid">
         <div class="video-card">
@@ -74,7 +79,7 @@
       </div>
     </section>
 
-    <section id="reels" class="section reels-section">
+    <section id="reels" class="section reels-section glass-panel">
       <h2 class="section-title">Instagram Reels</h2>
       <div class="video-grid reels-grid">
         <div class="reel-wrapper">
@@ -103,7 +108,9 @@
   </main>
 
   <footer class="site-footer">
-    <p>&copy; <span id="year"></span> SolusAstraDev</p>
+    <div class="footer-glass glass-panel">
+      <p>&copy; <span id="year"></span> SolusAstraDev</p>
+    </div>
   </footer>
 
   <script src="script.js"></script>
