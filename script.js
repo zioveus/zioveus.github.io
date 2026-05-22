@@ -35,9 +35,52 @@
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', loadYouTubeEmbeds);
-  } else {
+  // Subtle frog easter egg: five quick clicks on the site title
+  function initFrogEaster() {
+    var title = document.querySelector('.site-title');
+    var frog = document.getElementById('frog-easter');
+    if (!title || !frog) return;
+
+    var clicks = 0;
+    var resetTimer = null;
+    var hideTimer = null;
+    var needed = 5;
+    var windowMs = 2000;
+    var showMs = 4000;
+
+    title.addEventListener('click', function () {
+      clicks += 1;
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(function () {
+        clicks = 0;
+      }, windowMs);
+
+      if (clicks < needed) return;
+      clicks = 0;
+
+      frog.hidden = false;
+      frog.setAttribute('aria-hidden', 'false');
+      frog.classList.add('frog-easter--visible');
+
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(function () {
+        frog.classList.remove('frog-easter--visible');
+        setTimeout(function () {
+          frog.hidden = true;
+          frog.setAttribute('aria-hidden', 'true');
+        }, 800);
+      }, showMs);
+    });
+  }
+
+  function onReady() {
     loadYouTubeEmbeds();
+    initFrogEaster();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', onReady);
+  } else {
+    onReady();
   }
 })();
